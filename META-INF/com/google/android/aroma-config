@@ -5,13 +5,17 @@ ini_set("kernel_device",           "WhyRed");
 ini_set("kernel_date",             "June, 28 2015");
 
 anisplash(
-    4,
-    "splash/a1", 500,
-    "splash/a2", 30,
-    "splash/a3", 30,
-    "splash/a4", 30,
-    "splash/a5", 30,
-    "splash/a6", 30
+    1,
+    "splash/kcuf-1", 100,
+    "splash/kcuf-2", 100,
+    "splash/kcuf-3", 100,
+    "splash/kcuf-4", 100,
+    "splash/kcuf-5", 100,
+    "splash/kcuf-6", 100,
+    "splash/kcuf-7", 100,
+    "splash/kcuf-8", 100,
+    "splash/kcuf-9", 100,
+    "splash/kcuf-10", 500
 );
 
 theme("default");
