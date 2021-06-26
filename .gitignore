@@ -1,2 +1,5 @@
 bspatch
 Image*
+dtb*
+kernel_dtb*
+*.zip
