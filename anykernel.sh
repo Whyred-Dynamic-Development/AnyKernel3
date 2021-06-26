@@ -32,5 +32,9 @@ patch_vbmeta_flag=auto;
 ## AnyKernel boot install
 split_boot;
 
+# extract Image and dtb
+xz -d ${home}/Image.xz || abort
+xz -d ${home}/kernel_dtb.xz || abort
+
 flash_boot;
 ## end boot install
