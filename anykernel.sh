@@ -29,6 +29,10 @@ patch_vbmeta_flag=auto;
 # import patching functions/variables - see for reference
 . tools/ak3-core.sh;
 
+aroma_get_value() {
+  [ -f /tmp/aroma/${1}.prop ] && cat /tmp/aroma/${1}.prop | head -n1 | cut -d'=' -f2 || echo ""
+}
+
 ## AnyKernel boot install
 split_boot;
 
