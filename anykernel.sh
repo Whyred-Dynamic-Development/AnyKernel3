@@ -41,7 +41,13 @@ xz -d ${home}/Image.xz || abort
 xz -d ${home}/kernel_dtb.xz || abort
 
 # Read value by user selected from aroma prop files
+blobs_newcam=$(aroma_get_value blobs_newcam)
 cpu_overclock=$(aroma_get_value cpu_overclock)
+
+# Camera Blobs
+if [ "$blobs_newcam" == "2" ]; then
+	$bin/bspatch ${home}/Image ${home}/Image ${home}/bspatch/cam_newblobs || abort
+fi
 
 # cpu overclock
 if [ "$cpu_overclock" == "2" ]; then

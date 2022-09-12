@@ -34,6 +34,18 @@ viewbox(
     "@welcome"
 );
 
+# Next Button is "Next"
+ini_set("text_next", "Next");
+ini_set("icon_next", "@next");
+
+# CPU New Cam Blobs Switch
+selectbox(
+    "Camera Blobs\n",
+    "<@center><b>Select if your rom has OLD or NEW Camera Blobs.</b>\n\n</@>","@install",
+    "blobs_newcam.prop",
+    "Old Camera Blobs", "", 1,
+    "New Camera Blobs", "", 0
+);
 
 # Next Button is "Install"
 ini_set("text_next", "Install");
