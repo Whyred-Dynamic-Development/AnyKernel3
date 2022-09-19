@@ -41,8 +41,14 @@ xz -d ${home}/Image.xz || abort
 xz -d ${home}/kernel_dtb.xz || abort
 
 # Read value by user selected from aroma prop files
+dtb_dynamic=$(aroma_get_value dtb_dynamic)
 blobs_newcam=$(aroma_get_value blobs_newcam)
 cpu_overclock=$(aroma_get_value cpu_overclock)
+
+# Dyanmic Roms
+if [ "$dtb_dynamic" == "1" ]; then
+	$bin/bspatch ${home}/kernel_dtb ${home}/kernel_dtb ${home}/bspatch/dtb_fstab || abort
+fi
 
 # Camera Blobs
 if [ "$blobs_newcam" == "2" ]; then

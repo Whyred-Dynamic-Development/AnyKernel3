@@ -38,6 +38,15 @@ viewbox(
 ini_set("text_next", "Next");
 ini_set("icon_next", "@next");
 
+# Dynamic/Non-Dynamic Rom
+selectbox(
+    "Dynamic/Non-Dynamic Rom\n",
+    "<@center><b>Select if your rom is Dynamic or Non Dynamic.</b>\n\n</@>","@install",
+    "dtb_dynamic.prop",
+    "Non Dynamic Rom", "", 1,
+    "Dynamic Rom", "", 0
+);
+
 # CPU New Cam Blobs Switch
 selectbox(
     "Camera Blobs\n",
