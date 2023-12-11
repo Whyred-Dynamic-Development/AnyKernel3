@@ -1,21 +1,14 @@
-ini_set("kernel_name",             "KcufKernel");
+ini_set("kernel_name",             "San-Mesh-Kernel");
 ini_set("kernel_version",          "1.0");
-ini_set("kernel_author",           "Shekhawat2");
+ini_set("kernel_author",           "NopeNopeGuy and Santhosh");
 ini_set("kernel_device",           "WhyRed");
 ini_set("kernel_date",             "June, 28 2015");
 
 anisplash(
     1,
-    "splash/kcuf-1", 100,
-    "splash/kcuf-2", 100,
-    "splash/kcuf-3", 100,
-    "splash/kcuf-4", 100,
-    "splash/kcuf-5", 100,
-    "splash/kcuf-6", 100,
-    "splash/kcuf-7", 100,
-    "splash/kcuf-8", 100,
-    "splash/kcuf-9", 100,
-    "splash/kcuf-10", 500
+    "splash/san-01.png", 100
+    "splash/san-02.png", 100
+    "splash/san-03.png", 500
 );
 
 theme("default");
@@ -25,7 +18,7 @@ fontresload("1", "ttf/Roboto-Regular.ttf", "16");
 # STEP 2 - SHOW KERNEL INFORMATION
 viewbox(
     #-- Get Config Value
-    "KCUFKernel Installer\n",
+    "San Mesh Kernel Installer\n",
     "<@center>You are about to Install " + "<b>" + ini_get("kernel_name") + "</b>\n\n</@>" +
     "Version\t\t: "       + "<b>" + ini_get("kernel_version") + "</b>\n" +
     "Developed By\t: "    + "<b>" + ini_get("kernel_author") + "</b>\n" +
@@ -85,7 +78,7 @@ checkviewbox(
     "Installation Completed",
   
   #-- Text
-    "<#selectbg_g><b>Congratulation...</b></#>\n\n" +
+    "<#selectbg_g><b>Congratulations...</b></#>\n\n" +
     "<b>" + ini_get("kernel_name") + "</b> has been installed into your device.\n\n"+
     "Installer Status: " + getvar("retstatus") + "\n\n",
 	
