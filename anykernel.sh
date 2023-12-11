@@ -4,15 +4,15 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=KCUFKernel-V1
+kernel.string=San-Kernel-Mesh-V2
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=whyred
-device.name2=
-device.name3=
+device.name2=tulip
+device.name3=twolip
 device.name4=
 device.name5=
 supported.versions=
@@ -36,24 +36,9 @@ aroma_get_value() {
 ## AnyKernel boot install
 split_boot;
 
-# extract Image and dtb
-xz -d ${home}/Image.xz || abort
-xz -d ${home}/kernel_dtb.xz || abort
-
 # Read value by user selected from aroma prop files
-dtb_dynamic=$(aroma_get_value dtb_dynamic)
-blobs_newcam=$(aroma_get_value blobs_newcam)
 cpu_overclock=$(aroma_get_value cpu_overclock)
 
-# Dyanmic Roms
-if [ "$dtb_dynamic" == "1" ]; then
-	$bin/bspatch ${home}/kernel_dtb ${home}/kernel_dtb ${home}/bspatch/dtb_fstab || abort
-fi
-
-# Camera Blobs
-if [ "$blobs_newcam" == "2" ]; then
-	$bin/bspatch ${home}/Image ${home}/Image ${home}/bspatch/cam_newblobs || abort
-fi
 
 # cpu overclock
 if [ "$cpu_overclock" == "2" ]; then
