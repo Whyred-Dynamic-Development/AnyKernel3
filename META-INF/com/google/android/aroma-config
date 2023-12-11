@@ -6,9 +6,9 @@ ini_set("kernel_date",             "June, 28 2015");
 
 anisplash(
     1,
-    "splash/san-01", 500,
-    "splash/san-02", 500,
-    "splash/san-03", 500
+    "splash/san-01", 2000,
+    "splash/san-02", 2000,
+    "splash/san-03", 2000
 );
 
 theme("default");
@@ -52,9 +52,9 @@ selectbox(
     "Enable 2.2 Ghz", "", 0
 );
 
-# Next Button is "Next"
-ini_set("text_next", "Next");
-ini_set("icon_next", "@next");
+# Next Button is "Finish"
+ini_set("text_next", "Finish");
+ini_set("icon_next", "@finish");
 
 # INSTALLATION PROCESS
 setvar("retstatus",
@@ -76,43 +76,5 @@ setvar("retstatus",
   )
 );
 
-# Next Button is "Finish"
-ini_set("text_next", "Finish");
-ini_set("icon_next", "@finish");
-
-# FINISH MESSAGE, Add Checkbox to Reboot or No. Save in "reboot_it" variable
-checkviewbox(
-  #-- Title
-    "Installation Completed",
-  
-  #-- Text
-    "<#selectbg_g><b>Congratulations...</b></#>\n\n" +
-    "<b>" + ini_get("kernel_name") + "</b> has been installed into your device.\n\n"+
-    "Installer Status: " + getvar("retstatus") + "\n\n",
-	
-  #-- Icon
-    "@welcome",
-
-  #-- Checkbox Text
-    "Reboot your device now.",
-
-  #-- Initial Checkbox value ( 0=unchecked, 1=checked ) -  (Optional, default:0)
-    "1",
-
-  #-- Save checked value in variable "reboot_it" (Optional)
-    "reboot_it"
-);
-
-# Check if reboot checkbox was checked
-if
-  getvar("reboot_it")=="1"
-then
-  #
-  # reboot("onfinish");   - Reboot if anything finished
-  # reboot("now");        - Reboot Directly
-  # reboot("disable");    - If you set reboot("onfinish") before, use this command to revert it.
-  #
-  reboot("onfinish");
-endif;
 
 #---- FINISH
