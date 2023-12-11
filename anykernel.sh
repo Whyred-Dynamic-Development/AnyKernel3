@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=San-Kernel-Mesh-V2
+kernel.string=San-Kernel-Mesh-V1
 do.devicecheck=1
 do.modules=0
 do.systemless=1

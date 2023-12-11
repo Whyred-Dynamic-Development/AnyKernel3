@@ -6,9 +6,9 @@ ini_set("kernel_date",             "June, 28 2015");
 
 anisplash(
     1,
-    "splash/san-01.png", 100
-    "splash/san-02.png", 100
-    "splash/san-03.png", 500
+    "splash/san-01", 500,
+    "splash/san-02", 500,
+    "splash/san-03", 500
 );
 
 theme("default");
