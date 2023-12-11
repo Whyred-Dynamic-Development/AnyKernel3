@@ -31,6 +31,14 @@ viewbox(
 ini_set("text_next", "Next");
 ini_set("icon_next", "@next");
 
+selectbox(
+    "Device\n",
+    "<@center><b>Select which device you are using.</b>\n\n</@>","@install",
+    "san_device.prop",
+    "Whyred", "", 1,
+    "Twolip", "", 0
+);
+
 # Next Button is "Install"
 ini_set("text_next", "Install");
 ini_set("icon_next", "@install");

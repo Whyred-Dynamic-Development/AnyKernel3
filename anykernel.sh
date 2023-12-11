@@ -38,6 +38,16 @@ split_boot;
 
 # Read value by user selected from aroma prop files
 cpu_overclock=$(aroma_get_value cpu_overclock)
+device=$(aroma_get_value san_device)
+
+#  Device
+if [ "$device" == "2" ]; then
+    rm -rf whyred-Image.gz-dtb
+    mv tulip-Image.gz-dtb Image.gz-dtb
+else
+    rm -rf tulip-Image.gz-dtb
+    mv whyred-Image.gz-dtb Image.gz-dtb
+fi
 
 
 # cpu overclock
