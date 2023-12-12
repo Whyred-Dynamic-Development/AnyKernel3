@@ -2,24 +2,51 @@ ini_set("kernel_name",             "San-Kernel-V4.19-Mesh-R1");
 ini_set("kernel_version",          "1.0");
 ini_set("kernel_author",           "NopeNopeGuy and Santhosh");
 ini_set("kernel_device",           "Whyred");
-ini_set("kernel_date",             "December, 12 2023");
+ini_set("kernel_date",             "2023 December 12");
+ini_set("force_colorspace", "rgba");
+
 
 anisplash(
     1,
-    "splash/san-01", 2000,
-    "splash/san-02", 2000,
-    "splash/san-03", 2000
+    "splash/san-01", 1000,
+    "splash/san-02", 1000,
+    "splash/san-03", 1000
 );
 
 theme("default");
 fontresload("0", "ttf/Roboto-Regular.ttf", "12");
 fontresload("1", "ttf/Roboto-Regular.ttf", "16"); 
 
+
+# Ask for language 
+menubox(
+    "\n<@center>Select Language</@>",
+    "<@center>\nPilih bahasa\n\n\n\n</@>",
+    "",
+    "lang.prop",
+    "English", "", "",
+    "Indonesian", "", ""
+);
+
+if prop("lang.prop", "selected") == "1" then
+  setvar("about_to_install", "You are about to install ");
+  setvar("ask_device", "Which device are you using?");
+  setvar("select_oc", "Select if you want CPU overclock upto 2.2Ghz.");
+  setvar("install_text", "<b>" + ini_get("kernel_name") + "</b> is about to be installed"  + "\n\n\n" +
+      "Please wait while installation wizard installs <b>" + ini_get("kernel_name") +
+	  "</b>. This may take several minutes.");
+  setvar("finished_successfully", "The installation wizard has successfully installed <b>" + ini_get("kernel_name") +
+	  "</b>. Press Next to continue.");
+  setvar("installing", "Installing");  
+  setvar("keep_stock", "Keep Stock");
+  setvar("keep_oc", "Enable 2.2Ghz OC")
+endif;
+
 # STEP 2 - SHOW KERNEL INFORMATION
 viewbox(
     #-- Get Config Value
     "San Mesh Kernel Installer\n",
-    "<@center>You are about to Install " + "<b>" + ini_get("kernel_name") + "</b>\n\n</@>" +
+    "<@center> " + getvar("about_to_install") + "<b>" + ini_get("kernel_name") + "</b>\n\n</@>" +
     "Version\t\t: "       + "<b>" + ini_get("kernel_version") + "</b>\n" +
     "Developed By\t: "    + "<b>" + ini_get("kernel_author") + "</b>\n" +
     "On Date\t\t: "       + "<b>" + ini_get("kernel_date") + "</b>\n" +
@@ -33,7 +60,7 @@ ini_set("icon_next", "@next");
 
 selectbox(
     "Device\n",
-    "<@center><b>Select which device you are using.</b>\n\n</@>","@install",
+    "<@center><b>"+ getvar("ask_device")+"</b>\n\n</@>","@install",
     "san_device.prop",
     "Whyred", "", 1,
     "Twolip", "", 0
@@ -46,10 +73,10 @@ ini_set("icon_next", "@install");
 # CPU Overclock Switch
 selectbox(
     "CPU Overclock\n",
-    "<@center><b>Select if you want CPU overclock upto 2.2G.</b>\n\n</@>","@install",
+    "<@center><b>"+ getvar("select_oc")+"</b>\n\n</@>","@install",
     "cpu_overclock.prop",
-    "Keep Stock", "", 1,
-    "Enable 2.2 Ghz", "", 0
+    getvar("keep_stock"), "", 1,
+    getvar("keep_oc"), "", 0
 );
 
 # Next Button is "Finish"
@@ -60,19 +87,16 @@ ini_set("icon_next", "@finish");
 setvar("retstatus",
   install(
 	#-- Title
-      "Installing",
+      getvar("installing"),
 	
 	#-- Installation Process message
-	  "<b>" + ini_get("kernel_name") + "</b> is being installed.\n\n\n" +
-      "Please wait while installation wizard installs <b>" + ini_get("kernel_name") +
-	  "</b>. This may take several minutes.",
+	    getvar("install_text"),
 	
 	#-- Installation Icon
       "@install",
 	
 	#-- Installation Finish Message
-      "The installation wizard has successfully installed <b>" + ini_get("kernel_name") +
-	  "</b>. Press Next to continue."
+      ""
   )
 );
 
