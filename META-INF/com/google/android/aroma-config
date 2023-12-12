@@ -1,8 +1,8 @@
-ini_set("kernel_name",             "San-Mesh-Kernel");
+ini_set("kernel_name",             "San-Kernel-V4.19-Mesh-R1");
 ini_set("kernel_version",          "1.0");
 ini_set("kernel_author",           "NopeNopeGuy and Santhosh");
-ini_set("kernel_device",           "WhyRed");
-ini_set("kernel_date",             "June, 28 2015");
+ini_set("kernel_device",           "Whyred");
+ini_set("kernel_date",             "December, 12 2023");
 
 anisplash(
     1,
