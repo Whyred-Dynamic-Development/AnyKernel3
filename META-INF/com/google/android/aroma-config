@@ -2,7 +2,7 @@ ini_set("kernel_name",             "San-Kernel-V4.19-Mesh-R1");
 ini_set("kernel_version",          "1.0");
 ini_set("kernel_author",           "NopeNopeGuy and Santhosh");
 ini_set("kernel_device",           "Whyred");
-ini_set("kernel_date",             "2023 December 12");
+ini_set("kernel_date",             "2023 December 13");
 ini_set("force_colorspace", "rgba");
 
 
@@ -41,6 +41,22 @@ if prop("lang.prop", "selected") == "1" then
   setvar("keep_stock", "Keep Stock");
   setvar("keep_oc", "Enable 2.2Ghz OC")
 endif;
+
+if prop("lang.prop", "selected") == "2" then
+  setvar("about_to_install", "Anda akan menginstall ");
+  setvar("ask_device", "Device mana yang anda gunakan? ");
+  setvar("select_oc", "Pilih jika anda mau overclock sampai 2.2Ghz.");
+  setvar("install_text", "<b>" + ini_get("kernel_name") + "</b> akan segera diinstall."  + "\n\n\n" +
+      "Silahkan tunggu sampai instalasi wizard selesai <b>" + ini_get("kernel_name") +
+          "</b>. Ini akan memakan waktu beberapa menit.");
+  setvar("finished_successfully", "Instalasi wizard sudah sukses terinstall <b>" + ini_get("kernel_name") +
+          "</b>. Tekan Next untuk lanjut.");
+  setvar("installing", "Sedang menginstall..");
+  setvar("keep_stock", "Biarkan bawaan");
+  setvar("keep_oc", "Aktifkan OC 2.2Ghz")
+endif;
+
+
 
 # STEP 2 - SHOW KERNEL INFORMATION
 viewbox(
